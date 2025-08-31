@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOCX XML Viewer - 在线预览 Word XML 文件</title>
-    <meta name="description" content="DOCX XML Viewer 是一个在线工具，支持上传并预览 docx 文件内部的 XML 内容，自动解压并高亮显示。">
-    <meta name="keywords" content="docx, XML, Word, 在线预览, 文件解压, 高亮显示">
+    <title>OOXML Viewer - 在线预览 Office Open XML 文件</title>
+    <meta name="description" content="OOXML Viewer 是一个在线工具，支持上传并预览 Office Open XML 文件（docx、xlsx、pptx）内部的 XML 内容，自动解压并高亮显示。">
+    <meta name="keywords" content="ooxml, docx, xlsx, pptx, XML, Office, Word, Excel, PowerPoint, 在线预览, 文件解压, 高亮显示">
     <style>
         :target {
             background: yellow;
@@ -54,7 +54,6 @@
                             console.log(text);
                             const viewer = document.getElementById('my-viewer');
                             viewer.setXmlData(text);
-                            // viewer.setXmlData('<root><item>Content</item></root>');
 
                             const xmlDoc = new DOMParser().parseFromString(text, "application/xml");
                             console.log(xmlDoc);
