@@ -1,10 +1,10 @@
-# ooxml-viewer
+# ooxml-explorer
 
 一个在线工具，用于预览 Office Open XML 文件（包括 docx、xlsx、pptx）内部的 XML 文件。
 
 ## 在线体验
 
-无需本地安装，直接访问：[https://xna00.github.io/ooxml-viewer/](https://xna00.github.io/ooxml-viewer/) 即可在线预览和使用。
+无需本地安装，直接访问：[https://xna00.github.io/ooxml-explorer/](https://xna00.github.io/ooxml-explorer/) 即可在线预览和使用。
 
 ## 功能
 
@@ -26,7 +26,6 @@
     ```sh
     http://localhost:8080
     ```
-
 
 ## License
 
