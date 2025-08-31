@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :target {
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="file" id="fileInput">
+    <div style="display: flex;">
+        <div id="fileList" style="width: 280px;">
+        </div>
+
+        <pure-xml-view id="my-viewer" style="flex: 1;"></pure-xml-view>
+
+    </div>
+    <script type="module">
+        import * as zip from 'https://esm.sh/@zip.js/zip.js'
+        import 'https://esm.sh/pure-xml-view'
+        let entries = [];
+
+        document.getElementById('fileInput').addEventListener('change', async (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new zip.ZipReader(new zip.BlobReader(file));
+                entries = await reader.getEntries();
+                await reader.close();
+                document.getElementById('fileList').innerHTML = entries.map(e => `
+                <div>
+                <a id="${e.filename}" href="#${e.filename}">${e.filename}</a>
+                </div>
+                    `).join('');
+
+                setTimeout(() => {
+                    document.getElementById('word/document.xml').click();
+                }, 100);
+                document.getElementById('fileList').addEventListener('click', async (e) => {
+                    if (e.target && e.target.nodeName === "A") {
+                        const entry = entries.find(en => en.filename === e.target.id);
+                        if (entry) {
+                            const text = await entry.getData(new zip.TextWriter());
+                            console.log(text);
+                            const viewer = document.getElementById('my-viewer');
+                            viewer.setXmlData(text);
+                            // viewer.setXmlData('<root><item>Content</item></root>');
+
+                            const xmlDoc = new DOMParser().parseFromString(text, "application/xml");
+                            console.log(xmlDoc);
+
+                        }
+                    }
+                });
+            }
+        });
+
+    </script>
+</body>
+
+</html>
