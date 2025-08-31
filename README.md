@@ -4,7 +4,7 @@
 
 ## 在线体验
 
-无需本地安装，直接访问：[https://xna00.github.io/docx-xml-viewer/](https://xna00.github.io/docx-xml-viewer/) 即可在线预览和使用。
+无需本地安装，直接访问：[https://xna00.github.io/ooxml-viewer/](https://xna00.github.io/ooxml-viewer/) 即可在线预览和使用。
 
 ## 功能
 
