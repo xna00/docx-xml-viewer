@@ -41,7 +41,10 @@
                     `).join('');
 
                 setTimeout(() => {
-                    document.getElementById('word/document.xml').click();
+                    (document.getElementById('word/document.xml')
+                        ?? document.getElementById('ppt/presentation.xml')
+                        ?? document.getElementById('xl/workbook.xml')
+                    )?.click();
                 }, 100);
                 document.getElementById('fileList').addEventListener('click', async (e) => {
                     if (e.target && e.target.nodeName === "A") {
